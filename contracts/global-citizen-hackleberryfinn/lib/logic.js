@@ -41,7 +41,6 @@ async function sampleTransaction(tx) {
     event.newValue = tx.newValue;
     emit(event);
 }
-
 /**
  * createProjectPledge
  * @param {org.gcchallenge.CreateProjectPledge} createProjectPledge
@@ -72,13 +71,13 @@ function createProjectPledge(txParams) {
       txParams.aidOrg.projectPledge.push(pledge);
       return aidOrgRegistry.update(txParams.aidOrg);
     });
-  }
-  /**
-   * SendPledgeToGlobalCitizen
-   * @param {org.gcchallenge.SendPledgeToGlobalCitizen} sendPledgeToGlobalCitizen
-   * @transaction
-   */
-  function sendPledgeToGlobalCitizen(txParams) {
+}
+/**
+ * SendPledgeToGlobalCitizen
+ * @param {org.gcchallenge.SendPledgeToGlobalCitizen} sendPledgeToGlobalCitizen
+ * @transaction
+ */
+function sendPledgeToGlobalCitizen(txParams) {
     if(!txParams.citizenId || !txParams.pledgeId) {
       throw new Error('Invalid input parameters!!');
     }
@@ -92,13 +91,13 @@ function createProjectPledge(txParams) {
     }).then(function (registry) {
       return registry.update(txParams.citizenId);
     });
-  }
-  /**
-   * SendPledgeToGovOrg
-   * @param {org.gcchallenge.SendPledgeToGovOrg} sendPledgeToGovOrg
-   * @transaction
-   */
-  function sendPledgeToGovOrg(txParams) {
+}
+/**
+ * SendPledgeToGovOrg
+ * @param {org.gcchallenge.SendPledgeToGovOrg} sendPledgeToGovOrg
+ * @transaction
+ */
+function sendPledgeToGovOrg(txParams) {
     if(!txParams.pledgeId || !txParams.govOrg || (txParams.govOrg && txParams.govOrg.length === 0)) {
       throw new Error('Invalid input parameters!!');
     }
@@ -114,13 +113,13 @@ function createProjectPledge(txParams) {
       }
       return registry.updateAll(txParams.govOrg);
     });
-  }
-  /**
-   * UpdatePledge
-   * @param {org.gcchallenge.UpdatePledge} updatePledge
-   * @transaction
-   */
-  function updatePledge(txParams) {
+}
+/**
+ * UpdatePledge
+ * @param {org.gcchallenge.UpdatePledge} updatePledge
+ * @transaction
+ */
+function updatePledge(txParams) {
     if(!txParams.govOrgId) {
       throw new Error('Invalid user type!!');
     }
@@ -157,13 +156,13 @@ function createProjectPledge(txParams) {
     }).then(function (registry) {
       return registry.update(txParams.govOrgId);
     });
-  }
-  /**
-   * TransferFunds
-   * @param {org.gcchallenge.TransferFunds} transferFunds
-   * @transaction
-   */
-  function transferFunds(txParams) {
+}
+/**
+ * TransferFunds
+ * @param {org.gcchallenge.TransferFunds} transferFunds
+ * @transaction
+ */
+function transferFunds(txParams) {
     if(!txParams.pledgeId || !txParams.govOrgId) {
       throw new Error('Invalid input parameters!!');
     }
