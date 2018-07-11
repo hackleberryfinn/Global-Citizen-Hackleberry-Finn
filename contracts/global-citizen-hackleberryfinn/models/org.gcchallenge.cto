@@ -18,6 +18,17 @@
 
 namespace org.gcchallenge
 
+enum Cluster{
+  o GIRLSANDWOMEN
+  o HEALTH
+  o EDUCATION
+  o FINANCEANDINNOVATION
+  o FOODANDHUNGER
+  o WATERANDSANITATION
+  o ENVIRONMENT
+  o CITIZENSHIP
+}
+
 enum Status{
   o INITIALSTATE
   o GLOBALCITIZENREVIEW
@@ -31,6 +42,7 @@ enum FundingType{
   o SEMIANNUALY
   o ANNUALY
 }
+
 enum FundingStatus{
   o COMPLETE
   o INCOMPLETE
@@ -77,6 +89,14 @@ participant GlobalCitizen identified by citizenId extends User {
   o String citizenId
 }
 
+participant Community identified by communityId extends User {
+  o String communityId
+}
+
+participant Reporter identified by reporterId extends User {
+  o String reporterId
+}
+
 transaction CreateProjectPledge {
   o String pledgeId
   o String name
@@ -106,27 +126,4 @@ transaction UpdatePledge {
 transaction TransferFunds {
   --> GovOrg govOrgId
   --> ProjectPledge pledgeId
-}
-
-participant SampleParticipant identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
-}
-
-asset SampleAsset identified by assetId {
-  o String assetId
-  --> SampleParticipant owner
-  o String value
-}
-
-transaction SampleTransaction {
-  --> SampleAsset asset
-  o String newValue
-}
-
-event SampleEvent {
-  --> SampleAsset asset
-  o String oldValue
-  o String newValue
 }

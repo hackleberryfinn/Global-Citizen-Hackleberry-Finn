@@ -18,40 +18,16 @@
  */
 var NS = 'org.gcchallenge';
 /**
- * Sample transaction
- * @param {org.gcchallenge.SampleTransaction} sampleTransaction
- * @transaction
- */
-async function sampleTransaction(tx) {
-    // Save the old value of the asset.
-    const oldValue = tx.asset.value;
-
-    // Update the asset with the new value.
-    tx.asset.value = tx.newValue;
-
-    // Get the asset registry for the asset.
-    const assetRegistry = await getAssetRegistry('org.gcchallenge.SampleAsset');
-    // Update the asset in the asset registry.
-    await assetRegistry.update(tx.asset);
-
-    // Emit an event for the modified asset.
-    let event = getFactory().newEvent('org.gcchallenge', 'SampleEvent');
-    event.asset = tx.asset;
-    event.oldValue = oldValue;
-    event.newValue = tx.newValue;
-    emit(event);
-}
-/**
  * createProjectPledge
  * @param {org.gcchallenge.CreateProjectPledge} createProjectPledge
  * @transaction
  */
 function createProjectPledge(txParams) {
     if(!txParams.name || (txParams.name && txParams.name === '')) {
-        throw new Error('Invalid Pledge Name!!');
+        throw new Error('Invalid Pledge Name.');
     }
     if(!txParams.aidOrg) {
-        throw new Error('Invalid Aid Org!!');
+        throw new Error('Invalid Aid Org.');
     }
     var factory = getFactory();
     var pledge = null;
@@ -99,7 +75,7 @@ function sendPledgeToGlobalCitizen(txParams) {
  */
 function sendPledgeToGovOrg(txParams) {
     if(!txParams.pledgeId || !txParams.govOrg || (txParams.govOrg && txParams.govOrg.length === 0)) {
-        throw new Error('Invalid input parameters!!');
+        throw new Error('Invalid input parameters.');
     }
     var factory = getFactory();
     txParams.pledgeId.status = 'GOVORGREVIEW';
@@ -121,7 +97,7 @@ function sendPledgeToGovOrg(txParams) {
  */
 function updatePledge(txParams) {
     if(!txParams.govOrgId) {
-        throw new Error('Invalid user type!!');
+        throw new Error('Invalid user type.');
     }
     var factory = getFactory();
     var funding = factory.newConcept(NS, 'Funding');
