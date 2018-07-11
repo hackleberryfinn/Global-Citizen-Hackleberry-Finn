@@ -79,7 +79,7 @@ function createProjectPledge(txParams) {
  */
 function sendPledgeToGlobalCitizen(txParams) {
     if(!txParams.citizenId || !txParams.pledgeId) {
-      throw new Error('Invalid input parameters!!');
+        throw new Error('Invalid input parameters!!');
     }
     txParams.pledgeId.status = 'GLOBALCITIZENREVIEW';
     txParams.citizenId.projectPledge.push(txParams.pledgeId);
@@ -193,10 +193,10 @@ function transferFunds(txParams) {
             case 'ANNUALY':
                 daysToAdd = 365;
                 break;
-        }
-        txParams.pledgeId.funds[j].nextFundingDueInDays = daysToAdd;
-        txParams.pledgeId.funds[j].totalFundsReceived += txParams.pledgeId.funds[j].fundsPerInstallment;
-        break;
+            }
+            txParams.pledgeId.funds[j].nextFundingDueInDays = daysToAdd;
+            txParams.pledgeId.funds[j].totalFundsReceived += txParams.pledgeId.funds[j].fundsPerInstallment;
+            break;
         }
     }
     return getAssetRegistry(NS + '.ProjectPledge').then(function (registry) {
