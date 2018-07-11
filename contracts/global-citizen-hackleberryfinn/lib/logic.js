@@ -47,30 +47,30 @@ async function sampleTransaction(tx) {
  * @transaction
  */
 function createProjectPledge(txParams) {
-  if(!txParams.name || (txParams.name && txParams.name === '')) {
-    throw new Error('Invalid Pledge Name!!');
-  }
-  if(!txParams.aidOrg) {
-    throw new Error('Invalid Aid Org!!');
-  }
-  var factory = getFactory();
-  var pledge = null;
-  return getAssetRegistry(NS + '.ProjectPledge').then(function (registry) {
-    pledge = factory.newResource(NS, 'ProjectPledge', txParams.pledgeId);
-    pledge.name = txParams.name;
-    pledge.decription = txParams.decription;
-    pledge.fundsRequired = txParams.fundsRequired;
-    pledge.status = 'INITIALSTATE';
-    pledge.funds = [];
-    pledge.aidOrg = txParams.aidOrg;
-    return registry.add(pledge);
-  }).then(function () {
-    return getParticipantRegistry(NS + '.AidOrg');
-  }).then(function (aidOrgRegistry) {
-    // save the buyer
-    txParams.aidOrg.projectPledge.push(pledge);
-    return aidOrgRegistry.update(txParams.aidOrg);
-  });
+    if(!txParams.name || (txParams.name && txParams.name === '')) {
+        throw new Error('Invalid Pledge Name!!');
+    }
+    if(!txParams.aidOrg) {
+        throw new Error('Invalid Aid Org!!');
+    }
+    var factory = getFactory();
+    var pledge = null;
+    return getAssetRegistry(NS + '.ProjectPledge').then(function (registry) {
+        pledge = factory.newResource(NS, 'ProjectPledge', txParams.pledgeId);
+        pledge.name = txParams.name;
+        pledge.decription = txParams.decription;
+        pledge.fundsRequired = txParams.fundsRequired;
+        pledge.status = 'INITIALSTATE';
+        pledge.funds = [];
+        pledge.aidOrg = txParams.aidOrg;
+        return registry.add(pledge);
+    }).then(function () {
+        return getParticipantRegistry(NS + '.AidOrg');
+    }).then(function (aidOrgRegistry) {
+        // save the buyer
+        txParams.aidOrg.projectPledge.push(pledge);
+        return aidOrgRegistry.update(txParams.aidOrg);
+    });
 }
 /**
  * SendPledgeToGlobalCitizen
