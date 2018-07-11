@@ -44,7 +44,7 @@ async function sampleTransaction(tx) {
 
 /**
  * createProjectPledge
- * @param {org.global.citizens.net.CreateProjectPledge} createProjectPledge
+ * @param {org.gcchallenge.CreateProjectPledge} createProjectPledge
  * @transaction
  */
 function createProjectPledge(txParams) {
@@ -75,7 +75,7 @@ function createProjectPledge(txParams) {
   }
   /**
    * SendPledgeToGlobalCitizen
-   * @param {org.global.citizens.net.SendPledgeToGlobalCitizen} sendPledgeToGlobalCitizen
+   * @param {org.gcchallenge.SendPledgeToGlobalCitizen} sendPledgeToGlobalCitizen
    * @transaction
    */
   function sendPledgeToGlobalCitizen(txParams) {
@@ -95,7 +95,7 @@ function createProjectPledge(txParams) {
   }
   /**
    * SendPledgeToGovOrg
-   * @param {org.global.citizens.net.SendPledgeToGovOrg} sendPledgeToGovOrg
+   * @param {org.gcchallenge.SendPledgeToGovOrg} sendPledgeToGovOrg
    * @transaction
    */
   function sendPledgeToGovOrg(txParams) {
@@ -117,7 +117,7 @@ function createProjectPledge(txParams) {
   }
   /**
    * UpdatePledge
-   * @param {org.global.citizens.net.UpdatePledge} updatePledge
+   * @param {org.gcchallenge.UpdatePledge} updatePledge
    * @transaction
    */
   function updatePledge(txParams) {
@@ -160,7 +160,7 @@ function createProjectPledge(txParams) {
   }
   /**
    * TransferFunds
-   * @param {org.global.citizens.net.TransferFunds} transferFunds
+   * @param {org.gcchallenge.TransferFunds} transferFunds
    * @transaction
    */
   function transferFunds(txParams) {
