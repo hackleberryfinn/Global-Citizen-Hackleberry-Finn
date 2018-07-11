@@ -16,7 +16,7 @@
 /**
  * Write your transction processor functions here
  */
-
+var NS = 'org.gcchallenge';
 /**
  * Sample transaction
  * @param {org.gcchallenge.SampleTransaction} sampleTransaction
