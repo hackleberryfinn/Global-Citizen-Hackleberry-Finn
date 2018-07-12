@@ -3,7 +3,7 @@
     "composer": "^0.19.12"
   },
   "name": "global-citizen-hackleberryfinn",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple proof of concept to demonstrate an aid tracking blockchain implementation.",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/global-citizen-hackleberryfinn.bna",
@@ -18,6 +18,10 @@
   "author": "Luke Hutchinson",
   "email": "luke.hutchinson@live.com.au",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hackleberryfinn/Global-Citzien-Hackleberry-Finn.git"
+  },
   "devDependencies": {
     "composer-admin": "^0.19.12",
     "composer-cli": "^0.19.12",

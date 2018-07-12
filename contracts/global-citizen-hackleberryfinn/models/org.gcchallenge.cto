@@ -13,10 +13,17 @@
  */
 
 /**
- * Write your model definitions here
+ * This model describes a simple five participant blockchain designed
+ * to demonstrate the usage of blockchain in tracking aid.
  */
 
 namespace org.gcchallenge
+
+/**
+ * Cluster is designed to allow the sorting of aid projects.  The enumerated
+ * type receives its values from those obtained via global citizen.  These
+ * can be changed to suit your own purposes.
+ */
 
 enum Cluster{
   o GIRLSANDWOMEN
@@ -62,10 +69,17 @@ concept Funding {
   --> GovOrg govOrgId
 }
 
+/** We add flags to signal the call for funds to a cause has ceased
+ *  or to delete a cause created by mistake.  The record always
+ *  remains within the blockchain.  You could add these to need and project
+ */
+
 asset Cause identified by causeId {
   o String causeId
   o String name
   o String description
+  o Boolean closed
+  o Boolean deleted
   --> GlobalCitizen citizenId
 }
 
@@ -75,6 +89,11 @@ asset Need identified by needId {
   --> Cause causeId
   --> Community community
 }
+
+/** Project Pledge is the main asset and records the details of the project
+ *  along with the need and cluster.  It records the government funding
+ *  in an array in case you need multiple funders.
+ */
 
 asset ProjectPledge identified by pledgeId {
   o String pledgeId
@@ -87,6 +106,16 @@ asset ProjectPledge identified by pledgeId {
   --> Need needId
   o Funding[] funds
 }
+
+/**
+ * This network model features five participants, the global
+ * citizen identifies a Cause.  Community in the impacted area 
+ * identify their needs.  The Aid organisation picks up these needs
+ * and places them in to a project pledge request which they pass
+ * to a Government funder.  The government funds, and after project
+ * completion the Reporter can audit the project.  The reporter
+ * role is also suitable for journalists.
+ */
 
 abstract participant User {
   --> ProjectPledge[] projectPledge
@@ -103,21 +132,36 @@ participant AidOrg identified by aidOrgId extends User {
 
 participant GlobalCitizen identified by citizenId extends User {
   o String citizenId
+  --> Cause[] identifiedCauses
 }
 
 participant Community identified by communityId extends User {
   o String communityId
+  --> Need[] identifiedNeeds
 }
 
 participant Reporter identified by reporterId extends User {
   o String reporterId
 }
 
+/**
+ * A bunch of transaction declarations to interface with the blockchain.
+ */
+
 transaction CreateCause {
   o String causeId
   o String name
   o String description
   --> GlobalCitizen citizenId
+}
+
+transaction UpdateCause {
+  o String causeId
+  o String name
+  o String description
+  o Boolean closed
+  o Boolean deleted
+  --> GlobalCitizen citizenId 
 }
 
 transaction CreateProjectPledge {
