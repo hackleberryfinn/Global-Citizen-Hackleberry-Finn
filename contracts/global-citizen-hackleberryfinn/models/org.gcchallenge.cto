@@ -62,17 +62,17 @@ concept Funding {
   --> GovOrg govOrgId
 }
 
-asset Cause identified by causeID {
-  o String causeID
+asset Cause identified by causeId {
+  o String causeId
   o String name
   o String description
   --> GlobalCitizen citizenId
 }
 
-asset Need identified by needID {
-  o String needID
+asset Need identified by needId {
+  o String needId
   o String description
-  --> Cause causeID
+  --> Cause causeId
   --> Community community
 }
 
@@ -82,7 +82,9 @@ asset ProjectPledge identified by pledgeId {
   o String decription
   o Double fundsRequired
   o Status status
+  o Cluster clusterId
   --> AidOrg aidOrg
+  --> Need needId
   o Funding[] funds
 }
 
