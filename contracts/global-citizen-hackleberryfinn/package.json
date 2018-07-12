@@ -3,13 +3,13 @@
     "composer": "^0.19.12"
   },
   "name": "global-citizen-hackleberryfinn",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple proof of concept to demonstrate an aid tracking blockchain implementation.",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/global-citizen-hackleberryfinn.bna",
     "pretest": "npm run lint",
     "lint": "eslint .",
-    "test": "mocha --recursive"
+    "test": "nyc mocha -t 0 test/*.js && cucumber-js"
   },
   "keywords": [
     "composer",
