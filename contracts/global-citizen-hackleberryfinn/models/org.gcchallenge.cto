@@ -130,9 +130,8 @@ participant AidOrg identified by aidOrgId extends User {
   o String aidOrgId
 }
 
-participant GlobalCitizen identified by citizenId extends User {
+participant GlobalCitizen identified by citizenId {
   o String citizenId
-  --> Cause[] identifiedCauses
 }
 
 participant Community identified by communityId extends User {
