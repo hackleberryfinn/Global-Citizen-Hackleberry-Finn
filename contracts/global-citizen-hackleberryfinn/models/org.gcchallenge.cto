@@ -62,6 +62,19 @@ concept Funding {
   --> GovOrg govOrgId
 }
 
+asset Cause identified by causeID {
+  o String causeID
+  o String name
+  o String description
+  --> GlobalCitizen citizenId
+}
+
+asset Need identified by needID {
+  o String needID
+  o String description
+  --> Community community
+}
+
 asset ProjectPledge identified by pledgeId {
   o String pledgeId
   o String name
