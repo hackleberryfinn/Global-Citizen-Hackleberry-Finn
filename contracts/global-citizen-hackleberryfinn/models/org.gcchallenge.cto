@@ -72,6 +72,7 @@ asset Cause identified by causeID {
 asset Need identified by needID {
   o String needID
   o String description
+  --> Cause causeID
   --> Community community
 }
 
