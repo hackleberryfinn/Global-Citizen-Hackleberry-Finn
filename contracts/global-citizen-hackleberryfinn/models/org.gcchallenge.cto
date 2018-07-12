@@ -164,12 +164,27 @@ transaction UpdateCause {
   --> GlobalCitizen citizenId 
 }
 
+transaction CreateNeed {
+  o String needId
+  o String description
+  --> Cause causeId
+  --> Community community
+}
+
+transaction UpdateNeed {
+  o String needId
+  o String description
+  --> Cause causeId
+  --> Community community
+}
+
 transaction CreateProjectPledge {
   o String pledgeId
   o String name
   o String decription
   o Double fundsRequired
   --> AidOrg aidOrg
+  --> Need needId
 }
 
 transaction SendPledgeToGlobalCitizen {
