@@ -113,6 +113,13 @@ participant Reporter identified by reporterId extends User {
   o String reporterId
 }
 
+transaction CreateCause {
+  o String causeId
+  o String name
+  o String description
+  --> GlobalCitizen citizenId
+}
+
 transaction CreateProjectPledge {
   o String pledgeId
   o String name
