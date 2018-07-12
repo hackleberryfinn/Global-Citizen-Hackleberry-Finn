@@ -145,7 +145,7 @@ participant Reporter identified by reporterId extends User {
 }
 
 /**
- * A bunch of transaction declarations to interface with the blockchain.
+ * A bunch of transaction declarations to interface with the blockchain..
  */
 
 transaction CreateCause {
