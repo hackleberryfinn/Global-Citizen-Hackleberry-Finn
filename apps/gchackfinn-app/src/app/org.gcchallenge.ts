@@ -64,14 +64,11 @@ import {Event} from './org.hyperledger.composer.system';
       clusterId: Cluster;
       aidOrg: AidOrg;
       needId: Need;
-      funds: Funding[];
    }
    export abstract class User extends Participant {
-      projectPledge: ProjectPledge[];
    }
    export class GovOrg extends User {
       govOrgId: string;
-      fundedPledges: ProjectPledge[];
    }
    export class AidOrg extends User {
       aidOrgId: string;
@@ -79,9 +76,8 @@ import {Event} from './org.hyperledger.composer.system';
    export class GlobalCitizen extends Participant {
       citizenId: string;
    }
-   export class Community extends User {
+   export class Community extends Participant {
       communityId: string;
-      identifiedNeeds: Need[];
    }
    export class Reporter extends User {
       reporterId: string;

@@ -33,13 +33,11 @@ export class AidOrgComponent implements OnInit {
   private errorMessage;
 
   aidOrgId = new FormControl('', Validators.required);
-  projectPledge = new FormControl('', Validators.required);
 
 
   constructor(public serviceAidOrg: AidOrgService, fb: FormBuilder) {
     this.myForm = fb.group({
-      aidOrgId: this.aidOrgId,
-      projectPledge: this.projectPledge
+      aidOrgId: this.aidOrgId
     });
   };
 
@@ -96,13 +94,11 @@ export class AidOrgComponent implements OnInit {
   addParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.AidOrg',
-      'aidOrgId': this.aidOrgId.value,
-      'projectPledge': this.projectPledge.value
+      'aidOrgId': this.aidOrgId.value
     };
 
     this.myForm.setValue({
-      'aidOrgId': null,
-      'projectPledge': null
+      'aidOrgId': null
     });
 
     return this.serviceAidOrg.addParticipant(this.participant)
@@ -110,8 +106,7 @@ export class AidOrgComponent implements OnInit {
     .then(() => {
       this.errorMessage = null;
       this.myForm.setValue({
-        'aidOrgId': null,
-        'projectPledge': null
+        'aidOrgId': null
       });
       this.loadAll(); 
     })
@@ -128,7 +123,6 @@ export class AidOrgComponent implements OnInit {
    updateParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.AidOrg',
-      'projectPledge': this.projectPledge.value
     };
 
     return this.serviceAidOrg.updateParticipant(form.get('aidOrgId').value, this.participant)
@@ -179,20 +173,13 @@ export class AidOrgComponent implements OnInit {
     .then((result) => {
       this.errorMessage = null;
       const formObject = {
-        'aidOrgId': null,
-        'projectPledge': null
+        'aidOrgId': null
       };
 
       if (result.aidOrgId) {
         formObject.aidOrgId = result.aidOrgId;
       } else {
         formObject.aidOrgId = null;
-      }
-
-      if (result.projectPledge) {
-        formObject.projectPledge = result.projectPledge;
-      } else {
-        formObject.projectPledge = null;
       }
 
       this.myForm.setValue(formObject);
@@ -211,8 +198,7 @@ export class AidOrgComponent implements OnInit {
 
   resetForm(): void {
     this.myForm.setValue({
-      'aidOrgId': null,
-      'projectPledge': null
+      'aidOrgId': null
     });
   }
 }

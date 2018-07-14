@@ -33,15 +33,11 @@ export class CommunityComponent implements OnInit {
   private errorMessage;
 
   communityId = new FormControl('', Validators.required);
-  identifiedNeeds = new FormControl('', Validators.required);
-  projectPledge = new FormControl('', Validators.required);
 
 
   constructor(public serviceCommunity: CommunityService, fb: FormBuilder) {
     this.myForm = fb.group({
-      communityId: this.communityId,
-      identifiedNeeds: this.identifiedNeeds,
-      projectPledge: this.projectPledge
+      communityId: this.communityId
     });
   };
 
@@ -98,15 +94,11 @@ export class CommunityComponent implements OnInit {
   addParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.Community',
-      'communityId': this.communityId.value,
-      'identifiedNeeds': this.identifiedNeeds.value,
-      'projectPledge': this.projectPledge.value
+      'communityId': this.communityId.value
     };
 
     this.myForm.setValue({
-      'communityId': null,
-      'identifiedNeeds': null,
-      'projectPledge': null
+      'communityId': null
     });
 
     return this.serviceCommunity.addParticipant(this.participant)
@@ -114,9 +106,7 @@ export class CommunityComponent implements OnInit {
     .then(() => {
       this.errorMessage = null;
       this.myForm.setValue({
-        'communityId': null,
-        'identifiedNeeds': null,
-        'projectPledge': null
+        'communityId': null
       });
       this.loadAll(); 
     })
@@ -133,8 +123,6 @@ export class CommunityComponent implements OnInit {
    updateParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.Community',
-      'identifiedNeeds': this.identifiedNeeds.value,
-      'projectPledge': this.projectPledge.value
     };
 
     return this.serviceCommunity.updateParticipant(form.get('communityId').value, this.participant)
@@ -185,27 +173,13 @@ export class CommunityComponent implements OnInit {
     .then((result) => {
       this.errorMessage = null;
       const formObject = {
-        'communityId': null,
-        'identifiedNeeds': null,
-        'projectPledge': null
+        'communityId': null
       };
 
       if (result.communityId) {
         formObject.communityId = result.communityId;
       } else {
         formObject.communityId = null;
-      }
-
-      if (result.identifiedNeeds) {
-        formObject.identifiedNeeds = result.identifiedNeeds;
-      } else {
-        formObject.identifiedNeeds = null;
-      }
-
-      if (result.projectPledge) {
-        formObject.projectPledge = result.projectPledge;
-      } else {
-        formObject.projectPledge = null;
       }
 
       this.myForm.setValue(formObject);
@@ -224,9 +198,7 @@ export class CommunityComponent implements OnInit {
 
   resetForm(): void {
     this.myForm.setValue({
-      'communityId': null,
-      'identifiedNeeds': null,
-      'projectPledge': null
+      'communityId': null
     });
   }
 }

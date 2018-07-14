@@ -257,16 +257,6 @@
             
           
 
-            
-              <div class="form-group text-left">
-                <label for="funds">funds</label>
-                
-                    <textarea formControlName="funds" class="form-control" rows="3"></textarea>
-                
-              </div>
-            
-          
-
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -549,17 +539,6 @@
 
             </div>
           
-            <div class="form-group text-left">
-              <label for="funds">funds</label>
-              
-              
-                
-                  <textarea [ngModel]="funds" formControlName="funds" class="form-control" rows="3"></textarea>
-                
-              
-
-            </div>
-          
 
 
         </div>
@@ -647,8 +626,6 @@
             
                 <th class="info">needId</th>
             
-                <th class="info">funds</th>
-            
               <th class="info-actions">Actions</th>
           </tr>
         </thead>
@@ -671,8 +648,6 @@
                 <td class="asset-properties">{{asset.aidOrg}}</td>
             
                 <td class="asset-properties">{{asset.needId}}</td>
-            
-                <td class="asset-properties">{{asset.funds}}</td>
             
             <td>
               <button (click)="getForm(asset.pledgeId);" type="button" class="btn btn-update" data-toggle="modal" data-target="#updateAssetModal">

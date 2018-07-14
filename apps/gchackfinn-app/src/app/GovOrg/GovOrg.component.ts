@@ -33,15 +33,11 @@ export class GovOrgComponent implements OnInit {
   private errorMessage;
 
   govOrgId = new FormControl('', Validators.required);
-  fundedPledges = new FormControl('', Validators.required);
-  projectPledge = new FormControl('', Validators.required);
 
 
   constructor(public serviceGovOrg: GovOrgService, fb: FormBuilder) {
     this.myForm = fb.group({
-      govOrgId: this.govOrgId,
-      fundedPledges: this.fundedPledges,
-      projectPledge: this.projectPledge
+      govOrgId: this.govOrgId
     });
   };
 
@@ -98,15 +94,11 @@ export class GovOrgComponent implements OnInit {
   addParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.GovOrg',
-      'govOrgId': this.govOrgId.value,
-      'fundedPledges': this.fundedPledges.value,
-      'projectPledge': this.projectPledge.value
+      'govOrgId': this.govOrgId.value
     };
 
     this.myForm.setValue({
-      'govOrgId': null,
-      'fundedPledges': null,
-      'projectPledge': null
+      'govOrgId': null
     });
 
     return this.serviceGovOrg.addParticipant(this.participant)
@@ -114,9 +106,7 @@ export class GovOrgComponent implements OnInit {
     .then(() => {
       this.errorMessage = null;
       this.myForm.setValue({
-        'govOrgId': null,
-        'fundedPledges': null,
-        'projectPledge': null
+        'govOrgId': null
       });
       this.loadAll(); 
     })
@@ -133,8 +123,6 @@ export class GovOrgComponent implements OnInit {
    updateParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.GovOrg',
-      'fundedPledges': this.fundedPledges.value,
-      'projectPledge': this.projectPledge.value
     };
 
     return this.serviceGovOrg.updateParticipant(form.get('govOrgId').value, this.participant)
@@ -185,27 +173,13 @@ export class GovOrgComponent implements OnInit {
     .then((result) => {
       this.errorMessage = null;
       const formObject = {
-        'govOrgId': null,
-        'fundedPledges': null,
-        'projectPledge': null
+        'govOrgId': null
       };
 
       if (result.govOrgId) {
         formObject.govOrgId = result.govOrgId;
       } else {
         formObject.govOrgId = null;
-      }
-
-      if (result.fundedPledges) {
-        formObject.fundedPledges = result.fundedPledges;
-      } else {
-        formObject.fundedPledges = null;
-      }
-
-      if (result.projectPledge) {
-        formObject.projectPledge = result.projectPledge;
-      } else {
-        formObject.projectPledge = null;
       }
 
       this.myForm.setValue(formObject);
@@ -224,9 +198,7 @@ export class GovOrgComponent implements OnInit {
 
   resetForm(): void {
     this.myForm.setValue({
-      'govOrgId': null,
-      'fundedPledges': null,
-      'projectPledge': null
+      'govOrgId': null
     });
   }
 }

@@ -33,13 +33,11 @@ export class ReporterComponent implements OnInit {
   private errorMessage;
 
   reporterId = new FormControl('', Validators.required);
-  projectPledge = new FormControl('', Validators.required);
 
 
   constructor(public serviceReporter: ReporterService, fb: FormBuilder) {
     this.myForm = fb.group({
-      reporterId: this.reporterId,
-      projectPledge: this.projectPledge
+      reporterId: this.reporterId
     });
   };
 
@@ -96,13 +94,11 @@ export class ReporterComponent implements OnInit {
   addParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.Reporter',
-      'reporterId': this.reporterId.value,
-      'projectPledge': this.projectPledge.value
+      'reporterId': this.reporterId.value
     };
 
     this.myForm.setValue({
-      'reporterId': null,
-      'projectPledge': null
+      'reporterId': null
     });
 
     return this.serviceReporter.addParticipant(this.participant)
@@ -110,8 +106,7 @@ export class ReporterComponent implements OnInit {
     .then(() => {
       this.errorMessage = null;
       this.myForm.setValue({
-        'reporterId': null,
-        'projectPledge': null
+        'reporterId': null
       });
       this.loadAll(); 
     })
@@ -128,7 +123,6 @@ export class ReporterComponent implements OnInit {
    updateParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.Reporter',
-      'projectPledge': this.projectPledge.value
     };
 
     return this.serviceReporter.updateParticipant(form.get('reporterId').value, this.participant)
@@ -179,20 +173,13 @@ export class ReporterComponent implements OnInit {
     .then((result) => {
       this.errorMessage = null;
       const formObject = {
-        'reporterId': null,
-        'projectPledge': null
+        'reporterId': null
       };
 
       if (result.reporterId) {
         formObject.reporterId = result.reporterId;
       } else {
         formObject.reporterId = null;
-      }
-
-      if (result.projectPledge) {
-        formObject.projectPledge = result.projectPledge;
-      } else {
-        formObject.projectPledge = null;
       }
 
       this.myForm.setValue(formObject);
@@ -211,8 +198,7 @@ export class ReporterComponent implements OnInit {
 
   resetForm(): void {
     this.myForm.setValue({
-      'reporterId': null,
-      'projectPledge': null
+      'reporterId': null
     });
   }
 }

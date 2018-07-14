@@ -35,26 +35,6 @@
               
             
   
-              
-                <div class="form-group text-left">
-                  <label for="identifiedNeeds">identifiedNeeds</label>
-                  
-                      <textarea formControlName="identifiedNeeds" class="form-control" rows="3"></textarea>
-                  
-                </div>
-              
-            
-  
-              
-                <div class="form-group text-left">
-                  <label for="projectPledge">projectPledge</label>
-                  
-                      <textarea formControlName="projectPledge" class="form-control" rows="3"></textarea>
-                  
-                </div>
-              
-            
-  
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -86,28 +66,6 @@
   
                 
                   <input [ngModel]="communityId" formControlName="communityId" class="form-control" disabled="disabled">  
-                
-  
-              </div>
-            
-              <div class="form-group text-left">
-                <label for="identifiedNeeds">identifiedNeeds</label>
-  
-                
-                  
-                    <textarea [ngModel]="identifiedNeeds" formControlName="identifiedNeeds" class="form-control" rows="3"></textarea>
-                  
-                
-  
-              </div>
-            
-              <div class="form-group text-left">
-                <label for="projectPledge">projectPledge</label>
-  
-                
-                  
-                    <textarea [ngModel]="projectPledge" formControlName="projectPledge" class="form-control" rows="3"></textarea>
-                  
                 
   
               </div>
@@ -185,10 +143,6 @@
               
                   <th class="info">communityId</th>
               
-                  <th class="info">identifiedNeeds</th>
-              
-                  <th class="info">projectPledge</th>
-              
                 <th class="info-actions">Actions</th>
             </tr>
           </thead>
@@ -197,10 +151,6 @@
   
               
                   <td class="participant-properties">{{participant.communityId}}</td>
-              
-                  <td class="participant-properties">{{participant.identifiedNeeds}}</td>
-              
-                  <td class="participant-properties">{{participant.projectPledge}}</td>
               
               <td>
                 <button (click)="getForm(participant.communityId);" type="button" class="btn btn-update" data-toggle="modal" data-target="#updateParticipantModal">

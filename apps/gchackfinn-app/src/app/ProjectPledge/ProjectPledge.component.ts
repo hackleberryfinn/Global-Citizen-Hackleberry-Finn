@@ -40,7 +40,6 @@ export class ProjectPledgeComponent implements OnInit {
   clusterId = new FormControl('', Validators.required);
   aidOrg = new FormControl('', Validators.required);
   needId = new FormControl('', Validators.required);
-  funds = new FormControl('', Validators.required);
 
   constructor(public serviceProjectPledge: ProjectPledgeService, fb: FormBuilder) {
     this.myForm = fb.group({
@@ -51,8 +50,7 @@ export class ProjectPledgeComponent implements OnInit {
       status: this.status,
       clusterId: this.clusterId,
       aidOrg: this.aidOrg,
-      needId: this.needId,
-      funds: this.funds
+      needId: this.needId
     });
   };
 
@@ -117,8 +115,7 @@ export class ProjectPledgeComponent implements OnInit {
       'status': this.status.value,
       'clusterId': this.clusterId.value,
       'aidOrg': this.aidOrg.value,
-      'needId': this.needId.value,
-      'funds': this.funds.value
+      'needId': this.needId.value
     };
 
     this.myForm.setValue({
@@ -129,8 +126,7 @@ export class ProjectPledgeComponent implements OnInit {
       'status': null,
       'clusterId': null,
       'aidOrg': null,
-      'needId': null,
-      'funds': null
+      'needId': null
     });
 
     return this.serviceProjectPledge.addAsset(this.asset)
@@ -145,8 +141,7 @@ export class ProjectPledgeComponent implements OnInit {
         'status': null,
         'clusterId': null,
         'aidOrg': null,
-        'needId': null,
-        'funds': null
+        'needId': null
       });
       this.loadAll();
     })
@@ -169,8 +164,7 @@ export class ProjectPledgeComponent implements OnInit {
       'status': this.status.value,
       'clusterId': this.clusterId.value,
       'aidOrg': this.aidOrg.value,
-      'needId': this.needId.value,
-      'funds': this.funds.value
+      'needId': this.needId.value
     };
 
     return this.serviceProjectPledge.updateAsset(form.get('pledgeId').value, this.asset)
@@ -228,8 +222,7 @@ export class ProjectPledgeComponent implements OnInit {
         'status': null,
         'clusterId': null,
         'aidOrg': null,
-        'needId': null,
-        'funds': null
+        'needId': null
       };
 
       if (result.pledgeId) {
@@ -280,12 +273,6 @@ export class ProjectPledgeComponent implements OnInit {
         formObject.needId = null;
       }
 
-      if (result.funds) {
-        formObject.funds = result.funds;
-      } else {
-        formObject.funds = null;
-      }
-
       this.myForm.setValue(formObject);
 
     })
@@ -309,8 +296,7 @@ export class ProjectPledgeComponent implements OnInit {
       'status': null,
       'clusterId': null,
       'aidOrg': null,
-      'needId': null,
-      'funds': null
+      'needId': null
       });
   }
 

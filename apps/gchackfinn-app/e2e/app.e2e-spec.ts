@@ -31,13 +31,13 @@ describe('Starting tests for gchackfinn-app', function() {
     })
   });
 
-  it('network-name should be global-citizen-hackleberryfinn@0.0.6',() => {
+  it('network-name should be global-citizen-hackleberryfinn@0.0.8',() => {
     element(by.css('.network-name')).getWebElement()
     .then((webElement) => {
       return webElement.getText();
     })
     .then((txt) => {
-      expect(txt).toBe('global-citizen-hackleberryfinn@0.0.6.bna');
+      expect(txt).toBe('global-citizen-hackleberryfinn@0.0.8.bna');
     });
   });
 
@@ -99,10 +99,10 @@ describe('Starting tests for gchackfinn-app', function() {
       });
     });
 
-    it('ProjectPledge table should have 10 columns',() => {
+    it('ProjectPledge table should have 9 columns',() => {
       page.navigateTo('/ProjectPledge');
       element.all(by.css('.thead-cols th')).then(function(arr) {
-        expect(arr.length).toEqual(10); // Addition of 1 for 'Action' column
+        expect(arr.length).toEqual(9); // Addition of 1 for 'Action' column
       });
     });
   
@@ -119,10 +119,10 @@ describe('Starting tests for gchackfinn-app', function() {
       });
     });
 
-    it('GovOrg table should have 4 columns',() => {
+    it('GovOrg table should have 2 columns',() => {
       page.navigateTo('/GovOrg');
       element.all(by.css('.thead-cols th')).then(function(arr) {
-        expect(arr.length).toEqual(4); // Addition of 1 for 'Action' column
+        expect(arr.length).toEqual(2); // Addition of 1 for 'Action' column
       });
     });
   
@@ -137,10 +137,10 @@ describe('Starting tests for gchackfinn-app', function() {
       });
     });
 
-    it('AidOrg table should have 3 columns',() => {
+    it('AidOrg table should have 2 columns',() => {
       page.navigateTo('/AidOrg');
       element.all(by.css('.thead-cols th')).then(function(arr) {
-        expect(arr.length).toEqual(3); // Addition of 1 for 'Action' column
+        expect(arr.length).toEqual(2); // Addition of 1 for 'Action' column
       });
     });
   
@@ -173,10 +173,10 @@ describe('Starting tests for gchackfinn-app', function() {
       });
     });
 
-    it('Community table should have 4 columns',() => {
+    it('Community table should have 2 columns',() => {
       page.navigateTo('/Community');
       element.all(by.css('.thead-cols th')).then(function(arr) {
-        expect(arr.length).toEqual(4); // Addition of 1 for 'Action' column
+        expect(arr.length).toEqual(2); // Addition of 1 for 'Action' column
       });
     });
   
@@ -191,10 +191,10 @@ describe('Starting tests for gchackfinn-app', function() {
       });
     });
 
-    it('Reporter table should have 3 columns',() => {
+    it('Reporter table should have 2 columns',() => {
       page.navigateTo('/Reporter');
       element.all(by.css('.thead-cols th')).then(function(arr) {
-        expect(arr.length).toEqual(3); // Addition of 1 for 'Action' column
+        expect(arr.length).toEqual(2); // Addition of 1 for 'Action' column
       });
     });
   
