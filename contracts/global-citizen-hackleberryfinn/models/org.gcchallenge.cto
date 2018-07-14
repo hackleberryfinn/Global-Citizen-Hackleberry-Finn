@@ -143,38 +143,9 @@ participant Reporter identified by reporterId extends User {
 }
 
 /**
- * A bunch of transaction declarations to interface with the blockchain..
+ * A bunch of transaction declarations to interface with the blockchain
+ * to be introduced at a later date with validation etc
  */
-
-transaction CreateCause {
-  o String causeId
-  o String name
-  o String description
-  --> GlobalCitizen citizenId
-}
-
-transaction UpdateCause {
-  o String causeId
-  o String name
-  o String description
-  o Boolean closed
-  o Boolean deleted
-  --> GlobalCitizen citizenId 
-}
-
-transaction CreateNeed {
-  o String needId
-  o String description
-  --> Cause causeId
-  --> Community community
-}
-
-transaction UpdateNeed {
-  o String needId
-  o String description
-  --> Cause causeId
-  --> Community community
-}
 
 transaction CreateProjectPledge {
   o String pledgeId

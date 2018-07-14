@@ -31,13 +31,13 @@ describe('Starting tests for gchackfinn-app', function() {
     })
   });
 
-  it('network-name should be global-citizen-hackleberryfinn@0.0.8',() => {
+  it('network-name should be global-citizen-hackleberryfinn@0.0.9',() => {
     element(by.css('.network-name')).getWebElement()
     .then((webElement) => {
       return webElement.getText();
     })
     .then((txt) => {
-      expect(txt).toBe('global-citizen-hackleberryfinn@0.0.8.bna');
+      expect(txt).toBe('global-citizen-hackleberryfinn@0.0.9.bna');
     });
   });
 
@@ -199,50 +199,6 @@ describe('Starting tests for gchackfinn-app', function() {
     });
   
 
-  
-    it('CreateCause component should be loadable',() => {
-      page.navigateTo('/CreateCause');
-      browser.findElement(by.id('transactionName'))
-      .then((transactionName) => {
-        return transactionName.getText();
-      })
-      .then((txt) => {
-        expect(txt).toBe('CreateCause');
-      });
-    });
-  
-    it('UpdateCause component should be loadable',() => {
-      page.navigateTo('/UpdateCause');
-      browser.findElement(by.id('transactionName'))
-      .then((transactionName) => {
-        return transactionName.getText();
-      })
-      .then((txt) => {
-        expect(txt).toBe('UpdateCause');
-      });
-    });
-  
-    it('CreateNeed component should be loadable',() => {
-      page.navigateTo('/CreateNeed');
-      browser.findElement(by.id('transactionName'))
-      .then((transactionName) => {
-        return transactionName.getText();
-      })
-      .then((txt) => {
-        expect(txt).toBe('CreateNeed');
-      });
-    });
-  
-    it('UpdateNeed component should be loadable',() => {
-      page.navigateTo('/UpdateNeed');
-      browser.findElement(by.id('transactionName'))
-      .then((transactionName) => {
-        return transactionName.getText();
-      })
-      .then((txt) => {
-        expect(txt).toBe('UpdateNeed');
-      });
-    });
   
     it('CreateProjectPledge component should be loadable',() => {
       page.navigateTo('/CreateProjectPledge');

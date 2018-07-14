@@ -82,32 +82,6 @@ import {Event} from './org.hyperledger.composer.system';
    export class Reporter extends User {
       reporterId: string;
    }
-   export class CreateCause extends Transaction {
-      causeId: string;
-      name: string;
-      description: string;
-      citizenId: GlobalCitizen;
-   }
-   export class UpdateCause extends Transaction {
-      causeId: string;
-      name: string;
-      description: string;
-      closed: boolean;
-      deleted: boolean;
-      citizenId: GlobalCitizen;
-   }
-   export class CreateNeed extends Transaction {
-      needId: string;
-      description: string;
-      causeId: Cause;
-      community: Community;
-   }
-   export class UpdateNeed extends Transaction {
-      needId: string;
-      description: string;
-      causeId: Cause;
-      community: Community;
-   }
    export class CreateProjectPledge extends Transaction {
       pledgeId: string;
       name: string;

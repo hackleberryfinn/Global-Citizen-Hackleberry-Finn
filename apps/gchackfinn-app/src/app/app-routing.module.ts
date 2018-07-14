@@ -27,10 +27,6 @@ import { GlobalCitizenComponent } from './GlobalCitizen/GlobalCitizen.component'
 import { CommunityComponent } from './Community/Community.component';
 import { ReporterComponent } from './Reporter/Reporter.component';
 
-import { CreateCauseComponent } from './CreateCause/CreateCause.component';
-import { UpdateCauseComponent } from './UpdateCause/UpdateCause.component';
-import { CreateNeedComponent } from './CreateNeed/CreateNeed.component';
-import { UpdateNeedComponent } from './UpdateNeed/UpdateNeed.component';
 import { CreateProjectPledgeComponent } from './CreateProjectPledge/CreateProjectPledge.component';
 import { SendPledgeToGlobalCitizenComponent } from './SendPledgeToGlobalCitizen/SendPledgeToGlobalCitizen.component';
 import { SendPledgeToGovOrgComponent } from './SendPledgeToGovOrg/SendPledgeToGovOrg.component';
@@ -47,10 +43,6 @@ const routes: Routes = [
   { path: 'GlobalCitizen', component: GlobalCitizenComponent },
   { path: 'Community', component: CommunityComponent },
   { path: 'Reporter', component: ReporterComponent },
-  { path: 'CreateCause', component: CreateCauseComponent },
-  { path: 'UpdateCause', component: UpdateCauseComponent },
-  { path: 'CreateNeed', component: CreateNeedComponent },
-  { path: 'UpdateNeed', component: UpdateNeedComponent },
   { path: 'CreateProjectPledge', component: CreateProjectPledgeComponent },
   { path: 'SendPledgeToGlobalCitizen', component: SendPledgeToGlobalCitizenComponent },
   { path: 'SendPledgeToGovOrg', component: SendPledgeToGovOrgComponent },

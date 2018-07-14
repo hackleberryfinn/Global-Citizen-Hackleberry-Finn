@@ -31,10 +31,6 @@ import { GlobalCitizenComponent } from './GlobalCitizen/GlobalCitizen.component'
 import { CommunityComponent } from './Community/Community.component';
 import { ReporterComponent } from './Reporter/Reporter.component';
 
-import { CreateCauseComponent } from './CreateCause/CreateCause.component';
-import { UpdateCauseComponent } from './UpdateCause/UpdateCause.component';
-import { CreateNeedComponent } from './CreateNeed/CreateNeed.component';
-import { UpdateNeedComponent } from './UpdateNeed/UpdateNeed.component';
 import { CreateProjectPledgeComponent } from './CreateProjectPledge/CreateProjectPledge.component';
 import { SendPledgeToGlobalCitizenComponent } from './SendPledgeToGlobalCitizen/SendPledgeToGlobalCitizen.component';
 import { SendPledgeToGovOrgComponent } from './SendPledgeToGovOrg/SendPledgeToGovOrg.component';
@@ -53,10 +49,6 @@ import { TransferFundsComponent } from './TransferFunds/TransferFunds.component'
     GlobalCitizenComponent,
     CommunityComponent,
     ReporterComponent,
-    CreateCauseComponent,
-    UpdateCauseComponent,
-    CreateNeedComponent,
-    UpdateNeedComponent,
     CreateProjectPledgeComponent,
     SendPledgeToGlobalCitizenComponent,
     SendPledgeToGovOrgComponent,
