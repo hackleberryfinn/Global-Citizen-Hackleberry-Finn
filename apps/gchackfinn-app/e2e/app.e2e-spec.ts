@@ -155,10 +155,10 @@ describe('Starting tests for gchackfinn-app', function() {
       });
     });
 
-    it('GlobalCitizen table should have 4 columns',() => {
+    it('GlobalCitizen table should have 2 columns',() => {
       page.navigateTo('/GlobalCitizen');
       element.all(by.css('.thead-cols th')).then(function(arr) {
-        expect(arr.length).toEqual(4); // Addition of 1 for 'Action' column
+        expect(arr.length).toEqual(2); // Addition of 1 for 'Action' column
       });
     });
   

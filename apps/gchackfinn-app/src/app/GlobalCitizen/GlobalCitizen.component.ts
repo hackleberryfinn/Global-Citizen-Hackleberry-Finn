@@ -33,15 +33,11 @@ export class GlobalCitizenComponent implements OnInit {
   private errorMessage;
 
   citizenId = new FormControl('', Validators.required);
-  identifiedCauses = new FormControl('', Validators.required);
-  projectPledge = new FormControl('', Validators.required);
 
 
   constructor(public serviceGlobalCitizen: GlobalCitizenService, fb: FormBuilder) {
     this.myForm = fb.group({
-      citizenId: this.citizenId,
-      identifiedCauses: this.identifiedCauses,
-      projectPledge: this.projectPledge
+      citizenId: this.citizenId
     });
   };
 
@@ -98,15 +94,11 @@ export class GlobalCitizenComponent implements OnInit {
   addParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.GlobalCitizen',
-      'citizenId': this.citizenId.value,
-      'identifiedCauses': this.identifiedCauses.value,
-      'projectPledge': this.projectPledge.value
+      'citizenId': this.citizenId.value
     };
 
     this.myForm.setValue({
-      'citizenId': null,
-      'identifiedCauses': null,
-      'projectPledge': null
+      'citizenId': null
     });
 
     return this.serviceGlobalCitizen.addParticipant(this.participant)
@@ -114,9 +106,7 @@ export class GlobalCitizenComponent implements OnInit {
     .then(() => {
       this.errorMessage = null;
       this.myForm.setValue({
-        'citizenId': null,
-        'identifiedCauses': null,
-        'projectPledge': null
+        'citizenId': null
       });
       this.loadAll(); 
     })
@@ -133,8 +123,6 @@ export class GlobalCitizenComponent implements OnInit {
    updateParticipant(form: any): Promise<any> {
     this.participant = {
       $class: 'org.gcchallenge.GlobalCitizen',
-      'identifiedCauses': this.identifiedCauses.value,
-      'projectPledge': this.projectPledge.value
     };
 
     return this.serviceGlobalCitizen.updateParticipant(form.get('citizenId').value, this.participant)
@@ -185,27 +173,13 @@ export class GlobalCitizenComponent implements OnInit {
     .then((result) => {
       this.errorMessage = null;
       const formObject = {
-        'citizenId': null,
-        'identifiedCauses': null,
-        'projectPledge': null
+        'citizenId': null
       };
 
       if (result.citizenId) {
         formObject.citizenId = result.citizenId;
       } else {
         formObject.citizenId = null;
-      }
-
-      if (result.identifiedCauses) {
-        formObject.identifiedCauses = result.identifiedCauses;
-      } else {
-        formObject.identifiedCauses = null;
-      }
-
-      if (result.projectPledge) {
-        formObject.projectPledge = result.projectPledge;
-      } else {
-        formObject.projectPledge = null;
       }
 
       this.myForm.setValue(formObject);
@@ -224,9 +198,7 @@ export class GlobalCitizenComponent implements OnInit {
 
   resetForm(): void {
     this.myForm.setValue({
-      'citizenId': null,
-      'identifiedCauses': null,
-      'projectPledge': null
+      'citizenId': null
     });
   }
 }

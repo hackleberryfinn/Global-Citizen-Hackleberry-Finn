@@ -76,9 +76,8 @@ import {Event} from './org.hyperledger.composer.system';
    export class AidOrg extends User {
       aidOrgId: string;
    }
-   export class GlobalCitizen extends User {
+   export class GlobalCitizen extends Participant {
       citizenId: string;
-      identifiedCauses: Cause[];
    }
    export class Community extends User {
       communityId: string;
