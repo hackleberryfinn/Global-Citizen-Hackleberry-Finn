@@ -92,7 +92,8 @@ asset Need identified by needId {
 
 /** Project Pledge is the main asset and records the details of the project
  *  along with the need and cluster.  It records the government funding
- *  in an array in case you need multiple funders.
+ *  in an array in case you need multiple funders.  Note that funds is a 
+ *  placeholder to implement multi-government donation at a later stage.
  */
 
 asset ProjectPledge identified by pledgeId {
@@ -104,7 +105,7 @@ asset ProjectPledge identified by pledgeId {
   o Cluster clusterId
   --> AidOrg aidOrg
   --> Need needId
-  o Funding[] funds
+/**  o Funding[] funds */
 }
 
 /**
@@ -118,12 +119,11 @@ asset ProjectPledge identified by pledgeId {
  */
 
 abstract participant User {
-  --> ProjectPledge[] projectPledge
+/**  --> ProjectPledge[] projectPledge */
 }
 
 participant GovOrg identified by govOrgId extends User {
   o String govOrgId
-  --> ProjectPledge[] fundedPledges
 }
 
 participant AidOrg identified by aidOrgId extends User {
@@ -134,9 +134,8 @@ participant GlobalCitizen identified by citizenId {
   o String citizenId
 }
 
-participant Community identified by communityId extends User {
+participant Community identified by communityId {
   o String communityId
-  --> Need[] identifiedNeeds
 }
 
 participant Reporter identified by reporterId extends User {
