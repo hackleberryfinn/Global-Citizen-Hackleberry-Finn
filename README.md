@@ -1,1 +1,1 @@
-A simple blockchain application to demonstrate aid tracking.
+A simple blockchain application to demonstrate aid tracking.  To load the front end download or clone to a local machine and open index.html within the frontend director.
