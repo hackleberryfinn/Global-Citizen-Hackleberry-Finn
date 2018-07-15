@@ -1,7 +1,7 @@
 {
   "name": "gchackfinn-app",
   "description": "A simple app to interface with the aid tracking blockchain.",
-  "version": "0.0.1",
+  "version": "0.1",
   "author": "Luke Hutchinson",
   "email": "luke.hutchinson@live.com.au",
   "license": "Apache-2.0",
